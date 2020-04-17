@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1587164757 source:c:\users\dceri\desktop\tp_laboratorio_1\tp1\trabajopractico1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Operaciones.h"
+
+1587163692 source:c:\users\dceri\desktop\tp_laboratorio_1\tp1\trabajopractico1\operaciones.c
+	<stdio.h>
+	<stdlib.h>
+	"Operaciones.h"
+
+1587163723 c:\users\dceri\desktop\tp_laboratorio_1\tp1\trabajopractico1\operaciones.h
+
