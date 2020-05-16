@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1589592576 source:c:\users\dceri\desktop\nueva carpeta\trabajopractico2\arrayemployees.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Validaciones.h"
+	"ArrayEmployees.h"
+	"sectores.h"
+
+1589326012 source:c:\users\dceri\desktop\nueva carpeta\trabajopractico2\validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validaciones.h"
+
+1589323255 c:\users\dceri\desktop\nueva carpeta\trabajopractico2\validaciones.h
+
+1589589191 source:c:\users\dceri\desktop\nueva carpeta\trabajopractico2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Validaciones.h"
+	"ArrayEmployees.h"
+	"sectores.h"
+
+1589592433 c:\users\dceri\desktop\nueva carpeta\trabajopractico2\arrayemployees.h
+	"sectores.h"
+
+1589329465 c:\users\dceri\desktop\nueva carpeta\trabajopractico2\sectores.h
+
+1589329890 source:c:\users\dceri\desktop\nueva carpeta\trabajopractico2\sectores.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayEmployees.h"
+	"sectores.h"
+
