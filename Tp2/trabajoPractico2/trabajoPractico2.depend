@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1589592576 source:c:\users\dceri\desktop\nueva carpeta\trabajopractico2\arrayemployees.c
+1589678164 source:c:\users\dceri\desktop\nueva carpeta\trabajopractico2\arrayemployees.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -15,7 +15,7 @@
 
 1589323255 c:\users\dceri\desktop\nueva carpeta\trabajopractico2\validaciones.h
 
-1589589191 source:c:\users\dceri\desktop\nueva carpeta\trabajopractico2\main.c
+1589673870 source:c:\users\dceri\desktop\nueva carpeta\trabajopractico2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -23,12 +23,12 @@
 	"ArrayEmployees.h"
 	"sectores.h"
 
-1589592433 c:\users\dceri\desktop\nueva carpeta\trabajopractico2\arrayemployees.h
+1589676178 c:\users\dceri\desktop\nueva carpeta\trabajopractico2\arrayemployees.h
 	"sectores.h"
 
-1589329465 c:\users\dceri\desktop\nueva carpeta\trabajopractico2\sectores.h
+1589669564 c:\users\dceri\desktop\nueva carpeta\trabajopractico2\sectores.h
 
-1589329890 source:c:\users\dceri\desktop\nueva carpeta\trabajopractico2\sectores.c
+1589669440 source:c:\users\dceri\desktop\nueva carpeta\trabajopractico2\sectores.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

@@ -25,16 +25,9 @@ int modificarEmpleado(Employee* empleado, int len, eSector* sectores, int tamSec
 int buscarLibre(Employee vec[], int tam);
 int bajaEmpleado(Employee* list, int len, eSector* sectores, int tamSec);
 int menuMod();
-sortEmployees
+int sortEmployees(Employee* list, int len, int order);
+int informar(Employee* list, int len, eSector* sectores, int tamSec);
+int menuInformar();
+void promediarSalarios(Employee* list,int len,float* promedioSalarios, int* totalSalarios, int* contMayoresPromedio);
 
-
-/*
-
-
-
-
- sortEmployees
-
-
-*/
 

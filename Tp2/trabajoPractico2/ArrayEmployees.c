@@ -112,14 +112,14 @@ int crearEmployee(Employee* list, int len, eSector* sectores, int tamSec)
                 printf("Ingrese nombre del empleado\n");
                 auxRetorno = myGets(nombre,50);
             }
-            while(auxRetorno == -1);
+            while(auxRetorno == -1||nombre[0]=='\0');
 
             do
             {
                 printf("Ingrese apellido del empleado\n");
                 auxRetorno = myGets(apellido,51);
             }
-            while(auxRetorno == -1);
+            while(auxRetorno == -1||apellido[0]=='\0');
 
             do
             {
@@ -160,10 +160,7 @@ void mostrarEmpleado(Employee x,eSector* sectores, int tamSec)
     char nombreSector[20];
     cargarDescripcionSector(nombreSector,x.sector,sectores,tamSec);
 
-
-
-
-    printf("%4d    %-15s %-15s %.2f                 %s\n", x.id, x.name,x.lastName, x.salary, /*x.sexo, x.fechaIngreso.dia, x.fechaIngreso.mes, x.fechaIngreso.anio,*/ nombreSector);
+    printf("%4d    %-15s %-15s %.2f               %s\n", x.id, x.name,x.lastName, x.salary, nombreSector);
 
 }
 
@@ -234,6 +231,7 @@ int modificarEmpleado(Employee* empleado, int len, eSector* sectores, int tamSec
     float salario;
     int sector;
     char mod;
+    int auxRetorno = -1;
 
     for(int i = 0; i<len; i++) // verifico que haya empleados en el sistema
     {
@@ -255,7 +253,8 @@ int modificarEmpleado(Employee* empleado, int len, eSector* sectores, int tamSec
         do
         {
             obtuvoNumero = utn_getNumero(&idAModificar,"Indique el id del empleado a modificar: ","\nError. No se encuentra el empleado, verifique que exista en la base de datos\n",0,1000,5);
-            if(empleado[idAModificar].isEmpty) // verifica que el id ingresado pertenezca a un empleado cargado
+            indice = findEmployeeById(empleado,len,idAModificar);
+            if(empleado[indice].isEmpty) // verifica que el id ingresado pertenezca a un empleado cargado
             {
                 correcto = 0;
                 printf("\nEl id ingresado no pertenece a ningun empleado cargado\n");
@@ -269,11 +268,11 @@ int modificarEmpleado(Employee* empleado, int len, eSector* sectores, int tamSec
 
         system("cls");
 
-        indice = findEmployeeById(empleado,len,idAModificar);
+
 
         printf("**********Modificar empleado**********\n\n");
         printf("ID      Nombre          Apellido          Sueldo               Sector\n\n");
-        mostrarEmpleado(empleado[idAModificar],sectores,tamSec);
+        mostrarEmpleado(empleado[indice],sectores,tamSec);
 
         printf("Confirma la modificacion?('s' para verificar) \n\n");
         fflush(stdin);
@@ -281,28 +280,36 @@ int modificarEmpleado(Employee* empleado, int len, eSector* sectores, int tamSec
 
         if(mod== 's'|| mod == 'S')
         {
-            campoAModificar = menuMod();
-            switch(campoAModificar){
-        case 1://nombre
-            printf("Ingrese el nuevo nombre del empleado");
-            myGets(empleado[indice].name,20);
-            break;
-        case 2://apellido
-            printf("Ingrese el nuevo apellido del empleado");
-            myGets(empleado[indice].lastName,20);
-            break;
-        case 3: //salario
-            utn_getNumeroFlotante(&salario,"Ingrese el sueldo correspondiente al empleado: ", "Ha ocurrido un error. reintente \n",1,1000000,5);
-            empleado[indice].salary = salario;
-            break;
-        case 4: //sector
-            mostrarSectores(sectores,tamSec);
-            utn_getNumero(&sector,"Ingrese el sector al que pertenece el empleado: ","Ha ocurrido un error. Reintente \n",1,tamSec,5);
-            empleado[indice].sector = sector;
-            break;
-        default:
-            printf("\nSe ha cancelado la operacion\n");
-            break;
+            campoAModificar = menuMod(); //menu de opciones
+            switch(campoAModificar)
+            {
+            case 1://nombre
+                do{
+                    printf("Ingrese el nuevo nombre del empleado");
+                    auxRetorno = myGets(empleado[indice].name,20);
+                }
+                while(auxRetorno == -1||empleado[indice].name[0]=='\0');
+
+                break;
+            case 2://apellido
+                do{
+                printf("Ingrese el nuevo apellido del empleado");
+                auxRetorno = myGets(empleado[indice].lastName,20);
+                }
+                while(auxRetorno == -1||empleado[indice].name[0]=='\0');
+                break;
+            case 3: //salario
+                utn_getNumeroFlotante(&salario,"Ingrese el sueldo correspondiente al empleado: ", "Ha ocurrido un error. reintente \n",1,1000000,5);
+                empleado[indice].salary = salario;
+                break;
+            case 4: //sector
+                mostrarSectores(sectores,tamSec);
+                utn_getNumero(&sector,"Ingrese el sector al que pertenece el empleado: ","Ha ocurrido un error. Reintente \n",1,tamSec,5);
+                empleado[indice].sector = sector;
+                break;
+            default:
+                printf("\nSe ha cancelado la operacion\n");
+                break;
 
             }
         }
@@ -466,7 +473,8 @@ int bajaEmpleado(Employee* list, int len, eSector* sectores, int tamSec)
     return retorno;
 }
 
-int menuMod(){
+int menuMod()
+{
     int retorno =-1;
 
     printf("\n\n1.Nombre\n");
@@ -489,9 +497,162 @@ int menuMod(){
  * \param len int
  * \param order int  [1] indicate UP - [0] indicate DOWN
  * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
- * */
-int sortEmployees(Employee* list, int len, int order,eSector sectores, int tamSec){
+ *
+ */
+int sortEmployees(Employee* list, int len, int order)
+{
+    int retorno =-1;
+    Employee auxEmpleado;
+
+    if(list == NULL || len <= 0)
+    {
+        retorno = -1;
+    }
+    else
+    {
+        for(int i = 0; i<len-1; i++)
+        {
+            for(int j= i+1; j<len; j++)
+            {
+                if(list[i].isEmpty ==0 && list[j].isEmpty == 0)
+                {
+                    if(order)
+                    {
+                        if( strncmp(list[i].lastName,list[j].lastName,sizeof(auxEmpleado.lastName))> 0 )
+                        {
+                            auxEmpleado = list[i];
+                            list[i] = list[j];
+                            list[j] = auxEmpleado;
+                        }
+                        else if( strncmp(list[i].lastName,list[j].lastName,sizeof(auxEmpleado.lastName)) == 0 && list[i].sector > list[j].sector)
+                        {
+                            auxEmpleado = list[i];
+                            list[i] = list[j];
+                            list[j] = auxEmpleado;
+                        }
+                        retorno = 0;
+                    }
+                    else
+                    {
+                        if( strncmp(list[j].lastName,list[i].lastName,sizeof(auxEmpleado.lastName))> 0 )
+                        {
+                            auxEmpleado =list[i];
+                            list[i] = list[j];
+                            list[j] = auxEmpleado;
+                        }
+                        else if( strncmp(list[i].lastName,list[j].lastName,sizeof(auxEmpleado.lastName)) == 0 && list[i].sector < list[j].sector)
+                        {
+                            auxEmpleado = list[i];
+                            list[i] = list[j];
+                            list[j] = auxEmpleado;
+                        }
+                        retorno = 0;
+                    }
+                }
+            }
+        }
+    }
+    return retorno;
+}
+
+int informar(Employee* list, int len, eSector* sectores, int tamSec)
+{
+
+    int retorno = -1;
+    int opcion;
+    float promedioSalarios;
+    int totalSalarios;
+    int contMayoresPromedio;
+    int hayEmpleado;
+    Employee tempList[len];
 
 
+
+
+    if(list != NULL && len > 0){
+
+        for(int i = 0; i<len; i++) // verifico que haya empleados en el sistema
+        {
+            if(list[i].isEmpty== 0)
+            {
+                hayEmpleado = 1;
+                break;
+            }
+            else
+            {
+                hayEmpleado = 0;
+            }
+        }
+                if(hayEmpleado){
+                    for(int i = 0; i<len; i++){
+                        tempList[i] = list[i];
+                    }
+
+                    opcion = menuInformar();
+
+                    switch(opcion){
+                        case 1:
+                            sortEmployees(tempList,len,1);
+                            printEmployees(tempList,len,sectores,tamSec);
+                            break;
+                        case 2:
+                            promediarSalarios(list,len,&promedioSalarios,&totalSalarios,&contMayoresPromedio);
+                            printf("\nEl total de salarios es: %d\n", totalSalarios);
+                            printf("El promedio de salarios es: %.2f\n",promedioSalarios);
+                            printf("La cantidad de empleados que superan al promedio en salarios es: %d\n",contMayoresPromedio);
+                            break;
+                        default:
+                            printf("Ha ocurrido un error. Se ha cancelado la operacion\n");
+                            break;
+
+                    }
+                }
+                else
+                {
+                    printf("\nNo hay empleados cargados en el sistema\n");
+                }
+
+    }
+
+
+
+
+    return retorno;
+}
+
+int menuInformar()
+{
+    system("cls");
+    printf("************Menu informar************\n\n");
+
+    int opcion = -1;
+    printf("1.Listado de empleados ordenados por apellido alfabeticamente\n");
+    printf("2.Total y promedio de los salarios\n");
+    utn_getNumero(&opcion,"Ingrese un numero del 1 al 2: ","Error. Numero ingresado invalido\n",1,2,5);
+
+    return opcion;
+}
+
+void promediarSalarios(Employee* list, int len, float* promedioSalarios, int* totalSalarios, int* contMayoresPromedio){
+
+float acumulador = 0;
+int contador = 0;
+*contMayoresPromedio = 0;
+    for(int i = 0; i< len; i++){ //acumulo el total de los salarios
+        if(list[i].isEmpty == 0){
+            acumulador += list[i].salary;
+            contador++;
+        }
+    }
+*promedioSalarios = acumulador / contador;
+*totalSalarios = acumulador;
+
+    for(int i = 0; i<len; i++){ //cuento la cantidad de empleados que superan el promedio en salario
+        if(list[i].isEmpty == 0 && *promedioSalarios < list[i].salary  ){
+            *contMayoresPromedio+=1;
+        }
+
+
+    }
 
 }
