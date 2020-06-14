@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "LinkedList.h"
 #include "Employee.h"
 
@@ -47,26 +48,28 @@ int parser_EmployeeFromBinary(FILE* pFile, LinkedList* pArrayListEmployee)
 {
     Employee* auxEmpleado;
 
-    int auxId;
+    int id;
     char nombre[20];
     int horasTrabajadas;
     int sueldo;
 
-    char buffer[125];
+    if(pArrayListEmployee!=NULL && pFile !=NULL){
+        while(!feof(pFile)){
+            auxEmpleado = employee_new();
+            fread(&id,sizeof(int),1,pFile);
+            fread(nombre,strlen(nombre),1,pFile);
+            fread(&horasTrabajadas,sizeof(int),1,pFile);
+            fread(&sueldo,sizeof(int),1,pFile);
 
-    int cant;
+            employee_setId(auxEmpleado,id);
+            employee_setNombre(auxEmpleado,nombre);
+            employee_setHorasTrabajadas(auxEmpleado,horasTrabajadas);
+            employee_setSueldo(auxEmpleado,sueldo);
 
-    while(!feof(pFile))
-    {
-        cant = scanf("%[^\n]",buffer);
-        if(cant !=4)//si el fread no puede leer los parametros que vienen en la estructura Employee, sale de la estructura repetitiva
-        {
-            break;
+            ll_add(pArrayListEmployee,auxEmpleado);
+
         }
 
-        //auxEmpleado = employee_newParametros(auxId,nombre,horasTrabajadas,sueldo); //carga el empleado segun los parametros
-
-//        ll_add(pArrayListEmployee,auxEmpleado);
     }
 
 

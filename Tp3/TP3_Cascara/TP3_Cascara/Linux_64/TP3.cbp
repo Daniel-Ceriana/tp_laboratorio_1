@@ -51,10 +51,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="parser.h" />
-		<Unit filename="validaciones.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="validaciones.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

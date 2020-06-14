@@ -1,4 +1,5 @@
 id,nombre,horasTrabajadas,sueldo
+1,Lou,120,10000
 2,Ulrike,180,25000
 3,Brade,325,20000
 4,Kimbell,120,50000
@@ -91,7 +92,7 @@ id,nombre,horasTrabajadas,sueldo
 91,Sully,60,15000
 92,Lonni,220,50000
 93,Nicky,180,42000
-93,Nicky,180,42000
+94,My,90,18000
 95,Kyrstin,90,37000
 96,Martino,75,15000
 97,Marcellus,88,50000
@@ -321,7 +322,7 @@ id,nombre,horasTrabajadas,sueldo
 321,Wilona,90,25000
 322,Richard,90,42000
 323,Hilary,90,37000
-323,Hilary,90,37000
+324,Ad,90,33000
 325,Maynord,220,42000
 326,Lina,120,12000
 327,Nerty,220,20000
@@ -387,7 +388,7 @@ id,nombre,horasTrabajadas,sueldo
 387,Juliann,90,50000
 388,Shauna,120,25000
 389,Anna-maria,120,42000
-389,Anna-maria,120,42000
+390,Ag,88,50000
 391,Sherwin,88,50000
 392,Vikki,88,33000
 393,Barret,60,10000
@@ -416,7 +417,7 @@ id,nombre,horasTrabajadas,sueldo
 416,Dennie,75,42000
 417,Sibley,60,20000
 418,Addia,75,20000
-418,Addia,75,20000
+419,Ed,180,18000
 420,Lothaire,180,12000
 421,Neila,120,15000
 422,Jennifer,220,15000
@@ -788,7 +789,7 @@ id,nombre,horasTrabajadas,sueldo
 788,Adelaida,180,37000
 789,Florella,220,25000
 790,Noll,120,30000
-790,Noll,120,30000
+791,Ki,60,42000
 792,Jermayne,75,33000
 793,Grayce,325,33000
 794,Harv,325,42000
@@ -895,7 +896,7 @@ id,nombre,horasTrabajadas,sueldo
 895,Frasquito,90,15000
 896,Oberon,88,15000
 897,Gabriell,120,10000
-897,Gabriell,120,10000
+898,Ki,220,30000
 899,Martelle,120,15000
 900,Riccardo,90,42000
 901,Shaughn,180,50000
@@ -997,5 +998,4 @@ id,nombre,horasTrabajadas,sueldo
 997,De witt,88,12000
 998,Jaye,75,25000
 999,Tamarra,60,15000
-1000,hola,123,25000
-1001,Jorge,123,25000
+1000,Saleem,60,20000

@@ -151,18 +151,21 @@
 	"LinkedList.h"
 	"Employee.h"
 
-1592007845 source:c:\users\dceri\desktop\tp3_cascara\tp3_cascara\win_64\controller.c
+1592094681 source:c:\users\dceri\desktop\tp3_cascara\tp3_cascara\win_64\controller.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"LinkedList.h"
 	"Employee.h"
 	"parser.h"
+	"validaciones.h"
+	"controller.h"
 
 1533133022 c:\users\dceri\desktop\tp3_cascara\tp3_cascara\win_64\linkedlist.h
 
-1591999402 c:\users\dceri\desktop\tp3_cascara\tp3_cascara\win_64\employee.h
+1592094588 c:\users\dceri\desktop\tp3_cascara\tp3_cascara\win_64\employee.h
 
-1592007278 source:c:\users\dceri\desktop\tp3_cascara\tp3_cascara\win_64\employee.c
+1592093475 source:c:\users\dceri\desktop\tp3_cascara\tp3_cascara\win_64\employee.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -170,20 +173,31 @@
 	"Controller.h"
 	"Employee.h"
 
-1592007598 source:c:\users\dceri\desktop\tp3_cascara\tp3_cascara\win_64\main.c
+1592094468 source:c:\users\dceri\desktop\tp3_cascara\tp3_cascara\win_64\main.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
 	"Controller.h"
 	"Employee.h"
+	"validaciones.h"
 
-1533133022 c:\users\dceri\desktop\tp3_cascara\tp3_cascara\win_64\controller.h
+1592089770 c:\users\dceri\desktop\tp3_cascara\tp3_cascara\win_64\controller.h
+	"Employee.h"
 
-1592007105 source:c:\users\dceri\desktop\tp3_cascara\tp3_cascara\win_64\parser.c
+1592091445 source:c:\users\dceri\desktop\tp3_cascara\tp3_cascara\win_64\parser.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"LinkedList.h"
 	"Employee.h"
 
 1533133022 c:\users\dceri\desktop\tp3_cascara\tp3_cascara\win_64\parser.h
+
+1592082704 c:\users\dceri\desktop\tp3_cascara\tp3_cascara\win_64\validaciones.h
+
+1592082690 source:c:\users\dceri\desktop\tp3_cascara\tp3_cascara\win_64\validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validaciones.h"
 
