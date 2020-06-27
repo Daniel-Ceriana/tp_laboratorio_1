@@ -1,0 +1,56 @@
+# depslib dependency file v1.0
+1592082690 source:c:\users\dceri\desktop\tp4\validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validaciones.h"
+
+1592082704 c:\users\dceri\desktop\tp4\validaciones.h
+
+1593300088 source:c:\users\dceri\desktop\tp4\main.c
+	<stdio.h>
+	<stdlib.h>
+	"empleados.h"
+	"LinkedList.h"
+	"Controller.h"
+	"validaciones.h"
+
+1593288341 c:\users\dceri\desktop\tp4\empleados.h
+
+1560475730 c:\users\dceri\desktop\tp4\linkedlist.h
+
+1593288069 source:c:\users\dceri\desktop\tp4\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1593299332 source:c:\users\dceri\desktop\tp4\empleados.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"empleados.h"
+	"LinkedList.h"
+
+1593291025 source:c:\users\dceri\desktop\tp4\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"empleados.h"
+
+1593300145 source:c:\users\dceri\desktop\tp4\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"empleados.h"
+	"parser.h"
+	"validaciones.h"
+	"controller.h"
+
+1533133022 c:\users\dceri\desktop\tp4\parser.h
+
+1593299495 c:\users\dceri\desktop\tp4\controller.h
+	"empleados.h"
+
