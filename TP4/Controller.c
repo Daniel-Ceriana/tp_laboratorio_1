@@ -474,6 +474,13 @@ int controller_buscarEmpleadoPorId(int idBuscado,LinkedList* pArrayListEmployee)
     return retorno;
 
 }
+/** \brief modifica al empleado segun lo solicidato
+ *
+ * \param  this eEmpleado*
+ * \param  pArrayListEmployee LinkedList*
+ * \return retorna 0 si todo ok o -1 si error
+ *
+ */
 
 int menuModEmpleado(eEmpleado* this,LinkedList* pArrayListEmployee)
 {
@@ -515,6 +522,10 @@ int menuModEmpleado(eEmpleado* this,LinkedList* pArrayListEmployee)
     return retorno;
 }
 
+/** \brief muestra un menu de seleccion
+ * \return retorna un valor del 1 al 4
+ *
+ */
 
 int menuModEmpleadoSeleccion()
 {
@@ -559,6 +570,12 @@ int controller_listarMejoresPagos(LinkedList* pArrayListEmployee,int (*pFunc)(vo
     }
     return retorno;
 }
+/** \brief pone los campos del la lista de empleados en 0 o en " "
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return 0 si todo ok, -1 si error
+ *
+ */
 
 int controller_reiniciarDatos(LinkedList* pArrayListEmployee)
 {
